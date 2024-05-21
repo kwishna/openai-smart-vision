@@ -1,7 +1,7 @@
 import os
 import dotenv
 import openai
-from utils import image_to_base64
+from utils import image_to_base64, get_from_relative_path
 
 dotenv.load_dotenv()
 
@@ -27,7 +27,7 @@ comp = openai.chat.completions.create(
                     {
                         "type": "image_url",
                         "image_url": {
-                            "url": image_to_base64(os.path.abspath("../../images/baby-picture.png"))
+                            "url": image_to_base64(get_from_relative_path("../../images/baby-picture.png"))
                         }
                     }
                 ]
